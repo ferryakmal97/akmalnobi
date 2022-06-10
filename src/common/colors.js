@@ -1,16 +1,13 @@
-export const black = '#181715';
+export const black = '#000000';
 
-export const brownLight = '#DDD1C1';
-export const brownDark = '#978873';
+export const navy = '#152A53';
+export const darkNavy = '#11203C';
 
-export const cream = '#F4F0E7';
+export const gold = '#F6BC45';
 
-export const gold = '#F8AD36';
+export const green = '#05BE90';
 
-export const grey = '#DCDCDC';
-export const greyLight = '#F5F5F5';
-export const greyDark = '#979797';
+export const greyDark = '#9D9FA0';
+export const grey = '#9D9FA0';
 
-export const red = '#FF4E4E';
-
-export const white = '#FFFFFF';
+export const white = '#EAEAEA';
