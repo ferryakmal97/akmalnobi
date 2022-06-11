@@ -1,65 +1,113 @@
-import React from 'react';
-import { Image, Pressable} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Image, StyleSheet} from 'react-native';
+import {useSelector} from 'react-redux';
 
-import {black, moderateScale, navy} from '~common';
-import {IcEye, LoginButton, NobiLogo} from '~assets';
-import {Gap, GradientContainer, TextInput} from '~components';
-import { useState } from 'react';
+import {NobiLogo} from '~assets';
+import {black, moderateScale, navy, purple} from '~common';
+import {Button, Gap, GradientContainer, TextInput} from '~components';
+import {LOGIN} from '~constant/actionType';
+import {login} from '~services/api';
+import {dispatch, toast} from '~utils';
 
-const LoginScreen = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [errors, setErrors] = useState(false)
+const LoginScreen = ({navigation}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  });
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = () => {
+  const {accessToken} = useSelector(state => state.accountReducer);
 
-  }
+  const onSubmit = async () => {
+    if (email !== '' && password !== '') {
+      if (email === 'test@usenobi.com') {
+        if (password !== 'Test123') {
+          setErrors({email: '', password: 'Invalid Password'});
+        } else {
+          // If true
+          setErrors({email: '', password: ''});
+          setLoading(true);
+          try {
+            const result = await login({
+              body: {
+                email,
+                password,
+              },
+            });
+            toast('Success Login');
+            dispatch({type: LOGIN, value: result.token});
+            navigation.replace('TabStack');
+          } catch (error) {
+            console.log('error : ', error);
+          } finally {
+            setLoading(false);
+          }
+        }
+      } else {
+        setErrors({email: 'Invalid E-mail Address', password: ''});
+      }
+    } else {
+      setErrors({
+        email: 'Invalid E-mail Address',
+        password: 'Invalid Password',
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (accessToken) {
+      navigation.replace('Dashboard');
+    }
+  }, []);
 
   return (
     <GradientContainer colors={[navy, black]}>
-      <Image source={NobiLogo} style={{width: '100%', height: '3%', resizeMode: 'contain', marginBottom: moderateScale(44)}} />
+      <Image source={NobiLogo} style={styles.logo} />
       <TextInput
         title="E-mail Address"
         value={email}
-        onChange={(val)=>setEmail(val)}
+        onChangeText={setEmail}
         placeholder="Enter E-mail Address"
-        postFixComponent={
-          <Pressable style={{}}>
-            <Image source={IcEye} style={{}} />
-          </Pressable>
-        }
         textInputStyle={{textAlign: 'center'}}
-        error={errors && 'Invalid E-mail Address'}
+        error={errors.email}
       />
       <Gap height={moderateScale(13)} />
       <TextInput
         title="Password"
         value={password}
-        onChange={(val)=>setPassword(val)}
+        onChangeText={setPassword}
         placeholder="Enter Password"
-        postFixComponent={
-          <Pressable style={{}}>
-            <Image source={IcEye} style={{}} />
-          </Pressable>
-        }
         textInputStyle={{textAlign: 'center'}}
-        error={errors && 'Invalid Password'}
+        error={errors.password}
+        type="password"
       />
-      <Pressable
+      <Button
+        title="Login"
+        buttonColor={purple}
+        disabled={loading}
         onPress={onSubmit}
-        style={{
-          height: moderateScale(50),
-          width: '100%',
-          position: 'absolute',
-          bottom: moderateScale(40),
-        }}>
-        <Image
-          source={LoginButton}
-          style={{width: '100%', height: '100%', resizeMode: 'contain'}}
-        />
-      </Pressable>
+        style={styles.buttonContainer}
+      />
     </GradientContainer>
   );
 };
 
 export default LoginScreen;
+
+const styles = StyleSheet.create({
+  logo: {
+    width: '100%',
+    height: '3%',
+    resizeMode: 'contain',
+    marginBottom: moderateScale(44),
+  },
+  buttonContainer: {
+    height: moderateScale(50),
+    width: '100%',
+    position: 'absolute',
+    bottom: moderateScale(40),
+  },
+  buttonImage: {width: '100%', height: '100%', resizeMode: 'contain'},
+});

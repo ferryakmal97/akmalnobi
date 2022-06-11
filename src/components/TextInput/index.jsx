@@ -1,17 +1,31 @@
-import React from 'react';
-import {StyleSheet, TextInput as RNTextInput, View, Text} from 'react-native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  TextInput as RNTextInput,
+  View,
+  Text,
+  Pressable,
+} from 'react-native';
 
-import {circularBook, darkNavy, gold, grey, greyDark, moderateScale} from '~common';
+import {
+  circularBook,
+  darkNavy,
+  gold,
+  grey,
+  greyDark,
+  moderateScale,
+} from '~common';
+import {Icons} from '~components';
 
 export const TextInput = ({
   title,
   value,
-  onChange,
+  onChangeText,
   placeholder,
-  
+
   error,
 
-  isHidden = false,
+  type = '',
 
   // Components
   prefixComponent,
@@ -21,34 +35,55 @@ export const TextInput = ({
   wrapperStyle,
   textInputStyle,
 }) => {
+  const [hide, setHide] = useState(type === 'password');
   return (
     <>
-    {title && (
-      <Text style={styles.title}>{title}</Text>
-    )}
-    <View style={styles.container}>
-      {prefixComponent && (
-        <View style={[styles.prepostFixWrapper, styles.prefixWrapper]}>
-          {prefixComponent}
-        </View>
-      )}
-      <RNTextInput
-        value={value}
-        onChange={onChange}
-        secureTextEntry={isHidden}
-        placeholder={placeholder}
-        placeholderTextColor={greyDark}
-        style={[styles.textInputStyle, textInputStyle]}
-      />
-      {postFixComponent && (
-        <View style={[styles.prepostFixWrapper, styles.postFixWrapper]}>
-          {postFixComponent}
-        </View>
-      )}
-    </View>
-    {error && (
-      <Text style={styles.warn}>{error}</Text>
-    )}
+      {title && <Text style={styles.title}>{title}</Text>}
+      <View style={[styles.container, wrapperStyle]}>
+        {prefixComponent && (
+          <View style={[styles.prepostFixWrapper, styles.prefixWrapper]}>
+            {prefixComponent}
+          </View>
+        )}
+        <RNTextInput
+          value={value}
+          onChangeText={onChangeText}
+          secureTextEntry={hide}
+          placeholder={placeholder}
+          placeholderTextColor={greyDark}
+          style={[
+            {
+              paddingRight:
+                type === 'password' ? moderateScale(25) : moderateScale(10),
+            },
+            styles.textInputStyle,
+            textInputStyle,
+          ]}
+        />
+        {type === 'password' ? (
+          <Pressable
+            style={[styles.prepostFixWrapper, styles.postFixWrapper]}
+            onPress={() => setHide(!hide)}>
+            <Icons
+              name={hide ? 'eye-with-line' : 'eye'}
+              type="entypo"
+              color={greyDark}
+              style={{
+                width: moderateScale(20),
+                position: 'absolute',
+                right: moderateScale(10),
+              }}
+            />
+          </Pressable>
+        ) : (
+          postFixComponent && (
+            <View style={[styles.prepostFixWrapper, styles.postFixWrapper]}>
+              {postFixComponent}
+            </View>
+          )
+        )}
+      </View>
+      {error ? <Text style={styles.warn}>{error}</Text> : null}
     </>
   );
 };
@@ -59,23 +94,23 @@ const styles = StyleSheet.create({
     fontFamily: circularBook,
     color: greyDark,
     marginBottom: moderateScale(13),
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
   },
   warn: {
     fontSize: moderateScale(13),
     fontFamily: circularBook,
     color: gold,
     marginTop: moderateScale(8),
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
   },
   container: {
-    width: '100%',
     backgroundColor: darkNavy,
-    height: moderateScale(50),
+    height: moderateScale(40),
     borderRadius: moderateScale(8),
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
+    position: 'relative',
   },
   textInputWrapper: {
     flex: 1,
@@ -94,8 +129,6 @@ const styles = StyleSheet.create({
   prepostFixWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderTopLeftRadius: moderateScale(4),
-    borderBottomLeftRadius: moderateScale(4),
   },
   prefixWrapper: {
     paddingLeft: moderateScale(10),

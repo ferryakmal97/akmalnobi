@@ -2,8 +2,8 @@ import IcBack from './back.png';
 import IcDashboardOff from './dashboard-off.png';
 import IcDashboardOn from './dashboard-on.png';
 import IcEye from './eye.png';
-import IcLogoOff from './logo-off.png';
-import IcLogoOn from './logo-on.png';
+import IcListOff from './list-off.png';
+import IcListOn from './list-on.png';
 import IcSearch from './search.png';
 
 export {
@@ -11,7 +11,7 @@ export {
   IcDashboardOff,
   IcDashboardOn,
   IcEye,
-  IcLogoOff,
-  IcLogoOn,
+  IcListOff,
+  IcListOn,
   IcSearch,
 };

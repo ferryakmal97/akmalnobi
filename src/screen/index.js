@@ -1,6 +1,6 @@
 import DashboardScreen from './dashboard';
-import DepositScreen from './deposit';
 import ListScreen from './list';
 import LoginScreen from './login';
+import SplashScreen from './splash';
 
-export {DashboardScreen, DepositScreen, ListScreen, LoginScreen};
+export {DashboardScreen, ListScreen, LoginScreen, SplashScreen};
