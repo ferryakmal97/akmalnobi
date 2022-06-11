@@ -1,12 +1,15 @@
 import React from 'react';
-import {StyleSheet, TextInput as RNTextInput, View} from 'react-native';
+import {StyleSheet, TextInput as RNTextInput, View, Text} from 'react-native';
 
-import {black, darkNavy, grey, greyDark, moderateScale} from '~common';
+import {circularBook, darkNavy, gold, grey, greyDark, moderateScale} from '~common';
 
 export const TextInput = ({
+  title,
   value,
   onChange,
   placeholder,
+  
+  error,
 
   isHidden = false,
 
@@ -19,6 +22,10 @@ export const TextInput = ({
   textInputStyle,
 }) => {
   return (
+    <>
+    {title && (
+      <Text style={styles.title}>{title}</Text>
+    )}
     <View style={styles.container}>
       {prefixComponent && (
         <View style={[styles.prepostFixWrapper, styles.prefixWrapper]}>
@@ -39,12 +46,30 @@ export const TextInput = ({
         </View>
       )}
     </View>
+    {error && (
+      <Text style={styles.warn}>{error}</Text>
+    )}
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: moderateScale(15),
+    fontFamily: circularBook,
+    color: greyDark,
+    marginBottom: moderateScale(13),
+    alignSelf: 'flex-start'
+  },
+  warn: {
+    fontSize: moderateScale(13),
+    fontFamily: circularBook,
+    color: gold,
+    marginTop: moderateScale(8),
+    alignSelf: 'flex-start'
+  },
   container: {
-    width: '90%',
+    width: '100%',
     backgroundColor: darkNavy,
     height: moderateScale(50),
     borderRadius: moderateScale(8),

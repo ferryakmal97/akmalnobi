@@ -12,11 +12,11 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		4D85DA88C1EB41CAA3FCD9C8 /* CircularStd-BookItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00B514ECB2944B93855D3382 /* CircularStd-BookItalic.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-akmalnobi-akmalnobiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-akmalnobi-akmalnobiTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		96F2D61D66BB4D5188BBF4DB /* CircularStd-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB85DA1B132641E2A737F81E /* CircularStd-Bold.ttf */; };
 		D1903551BFEB46BC90CAE134 /* CircularStd-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FF3F7414AAE4DF0B4A7EE34 /* CircularStd-Book.ttf */; };
-		4D85DA88C1EB41CAA3FCD9C8 /* CircularStd-BookItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00B514ECB2944B93855D3382 /* CircularStd-BookItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B514ECB2944B93855D3382 /* CircularStd-BookItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-BookItalic.ttf"; path = "../src/assets/fonts/CircularStd-BookItalic.ttf"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* akmalnobiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = akmalnobiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* akmalnobiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = akmalnobiTests.m; sourceTree = "<group>"; };
@@ -41,15 +42,14 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = akmalnobi/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-akmalnobi-akmalnobiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-akmalnobi-akmalnobiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-akmalnobi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akmalnobi.debug.xcconfig"; path = "Target Support Files/Pods-akmalnobi/Pods-akmalnobi.debug.xcconfig"; sourceTree = "<group>"; };
+		4FF3F7414AAE4DF0B4A7EE34 /* CircularStd-Book.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Book.ttf"; path = "../src/assets/fonts/CircularStd-Book.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-akmalnobi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akmalnobi.release.xcconfig"; path = "Target Support Files/Pods-akmalnobi/Pods-akmalnobi.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-akmalnobi-akmalnobiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akmalnobi-akmalnobiTests.debug.xcconfig"; path = "Target Support Files/Pods-akmalnobi-akmalnobiTests/Pods-akmalnobi-akmalnobiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-akmalnobi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-akmalnobi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = akmalnobi/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-akmalnobi-akmalnobiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akmalnobi-akmalnobiTests.release.xcconfig"; path = "Target Support Files/Pods-akmalnobi-akmalnobiTests/Pods-akmalnobi-akmalnobiTests.release.xcconfig"; sourceTree = "<group>"; };
+		CB85DA1B132641E2A737F81E /* CircularStd-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Bold.ttf"; path = "../src/assets/fonts/CircularStd-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		CB85DA1B132641E2A737F81E /* CircularStd-Bold.ttf */ = {isa = PBXFileReference; name = "CircularStd-Bold.ttf"; path = "../src/assets/fonts/CircularStd-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4FF3F7414AAE4DF0B4A7EE34 /* CircularStd-Book.ttf */ = {isa = PBXFileReference; name = "CircularStd-Book.ttf"; path = "../src/assets/fonts/CircularStd-Book.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		00B514ECB2944B93855D3382 /* CircularStd-BookItalic.ttf */ = {isa = PBXFileReference; name = "CircularStd-BookItalic.ttf"; path = "../src/assets/fonts/CircularStd-BookItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,15 +156,15 @@
 			sourceTree = "<group>";
 		};
 		BD65E901E1C245EAB3C5ED67 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				CB85DA1B132641E2A737F81E /* CircularStd-Bold.ttf */,
 				4FF3F7414AAE4DF0B4A7EE34 /* CircularStd-Book.ttf */,
 				00B514ECB2944B93855D3382 /* CircularStd-BookItalic.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
