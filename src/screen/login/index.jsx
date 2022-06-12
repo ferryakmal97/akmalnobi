@@ -41,6 +41,7 @@ const LoginScreen = ({navigation}) => {
             navigation.replace('TabStack');
           } catch (error) {
             console.log('error : ', error);
+            toast('Login Failed' + error);
           } finally {
             setLoading(false);
           }
